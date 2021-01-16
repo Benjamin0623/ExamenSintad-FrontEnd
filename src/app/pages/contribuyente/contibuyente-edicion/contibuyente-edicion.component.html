@@ -1,0 +1,32 @@
+<mat-card>Ingrese los datos del Contribuyente</mat-card>
+<br>
+<form class="example-container" [formGroup]="form" #frmContri="ngForm" (ngSubmit)="operar()">
+
+    <div [hidden]="true">
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="ID" required formControlName="id">
+        </mat-form-field>
+    </div>
+
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="Nombres" minlength="3" required formControlName="nombre">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <mat-select placeholder="Selecciona Estado" [(value)]="estadoSeleccionado">
+        <mat-option *ngFor="let e of estados " [value]="e.codigo">
+          {{e.nombre}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br>
+    <button mat-raised-button color="primary" type="submit" [disabled]="frmContri.invalid">
+        <mat-icon>done</mat-icon>
+        <span>Aceptar</span>
+    </button>
+    <button mat-raised-button color="accent" routerLink='/contribuyente' type="button">
+        <mat-icon>close</mat-icon>
+        <span>Cancelar</span>
+    </button>
+
+</form>

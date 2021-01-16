@@ -1,0 +1,17 @@
+.mat-column-id {
+  max-width: 30px;
+}
+.mat-column-documento,
+.mat-column-razon {
+  max-width: 190px;
+}
+.mat-column-nroDoc,
+.mat-column-telefono{
+ max-width:100px;
+}
+.mat-column-direccion{
+  max-width: 400px;
+}
+.mat-column-contribuyente{
+  max-width: 150px;
+}

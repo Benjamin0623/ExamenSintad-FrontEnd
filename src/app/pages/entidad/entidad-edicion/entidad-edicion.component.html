@@ -1,0 +1,63 @@
+<mat-card>Ingrese los datos del Contribuyente</mat-card>
+<br>
+<form class="example-container" [formGroup]="form" #frmContri="ngForm" (ngSubmit)="operar()">
+
+    <div [hidden]="true">
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="ID" required formControlName="id">
+        </mat-form-field>
+    </div>
+    <mat-form-field>
+      <mat-select placeholder="Selecciona Documento" required [(value)]="documentoSeleccionado" (selectionChange)="traeDocumento()">
+        <mat-option *ngFor="let e of documentos " [value]="e.idTipoDocumento">
+          {{e.nombre}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br>
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="N° Documento"  required formControlName="nroDoc">
+  </mat-form-field>
+  <br>
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="Razon Social"  required formControlName="razon">
+    </mat-form-field>
+    <br>
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Nombre Comercial"  formControlName="nombre">
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <mat-select placeholder="Selecciona Contribuyente" [(value)]="contribuyenteSeleccionado" (selectionChange)="traeContribuyente()">
+      <mat-option *ngFor="let e of contribuyentes " [value]="e.idTipoContribuyente">
+        {{e.nombre}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <br>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Direccion"  formControlName="direccion">
+</mat-form-field>
+  <br>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Telefono"  required formControlName="nombre">
+</mat-form-field>
+<br>
+    <mat-form-field>
+      <mat-select placeholder="Selecciona Estado" required [(value)]="estadoSeleccionado">
+        <mat-option *ngFor="let e of estados " [value]="e.codigo">
+          {{e.nombre}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br>
+    <button mat-raised-button color="primary" type="submit" [disabled]="frmContri.invalid">
+        <mat-icon>done</mat-icon>
+        <span>Aceptar</span>
+    </button>
+    <button mat-raised-button color="accent" routerLink='/entidad' type="button">
+        <mat-icon>close</mat-icon>
+        <span>Cancelar</span>
+    </button>
+
+</form>
