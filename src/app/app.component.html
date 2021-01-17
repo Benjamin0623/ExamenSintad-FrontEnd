@@ -1,5 +1,5 @@
 <div class="example-container">
-  <mat-toolbar color="primary" class="example-toolbar" >
+  <mat-toolbar color="primary" class="example-toolbar" *ngIf="loginService.estaLogueado()">
       <button mat-icon-button (click)="sidenav.toggle()">
           <mat-icon *ngIf="!sidenav.opened">menu</mat-icon>
           <mat-icon *ngIf="sidenav.opened">close</mat-icon>
@@ -18,7 +18,7 @@
               <mat-icon>account_box</mat-icon>
               <span>Mi Perfil</span>
           </button>
-          <button mat-menu-item (click)="sidenav.opened = false" >
+          <button mat-menu-item (click)="sidenav.opened = false" (click)="loginService.cerrarSesion()">
               <mat-icon>exit_to_app</mat-icon>
               <span>Cerrar Sesión</span>
           </button>

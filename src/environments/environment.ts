@@ -4,7 +4,11 @@
 
 export const environment = {
   production: false,
-  HOST:'http://localhost:8080'
+  HOST: 'http://localhost:8080',
+  TOKEN_AUTH_USERNAME: 'benjamin',
+  TOKEN_AUTH_PASSWORD: 'benjamin',
+  TOKEN_NAME: 'acces_token',
+  REINTENTOS: 2
 };
 
 /*
